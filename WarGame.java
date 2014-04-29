@@ -5,6 +5,9 @@ import java.awt.*;
    
 public class WarGame extends Deck1
 {
+   public int deck1size;
+   public int deck2size;
+      
    public static void main(String [] args) 
    {
       WarGame game1 = new WarGame();
@@ -28,8 +31,12 @@ public class WarGame extends Deck1
          playerOneDeck.shuffle();
          playerTwoDeck.shuffle();
          
-         int i = 1;
-         int quit;
+         game1.setDeck1Size(playerOneDeck.cardsRemaining());
+         game1.setDeck2Size(playerTwoDeck.cardsRemaining());    
+         
+         System.out.println(game1.getDeck1Size());
+         System.out.println(game1.getDeck2Size());
+          
 
       while (playerOneDeck.cardsRemaining() > 1 && playerTwoDeck.cardsRemaining() > 1)
       {
@@ -89,12 +96,11 @@ public class WarGame extends Deck1
                         }
                }
             
-        int deck1size = playerOneDeck.cardsRemaining();    
-        System.out.println(deck1size);
+        game1.setDeck1Size(playerOneDeck.cardsRemaining());    
+        System.out.println(game1.getDeck1Size());
         
-        int deck2size = playerTwoDeck.cardsRemaining();    
-        System.out.println(deck2size);
-        i++;
+        game1.setDeck2Size(playerTwoDeck.cardsRemaining());
+        System.out.println(game1.getDeck2Size());
         
 
         playerOneDeck.shuffle();
@@ -128,10 +134,37 @@ public class WarGame extends Deck1
       return high;
    }
    
-      
-   public ArrayList Images()
+
+   
+   
+   public int getDeck1Size()
    {
-    ArrayList cardImages = new ArrayList<ImageIcon>();
+      return deck1size;
+   }
+   
+      public int getDeck2Size()
+   {
+      return deck2size;
+   }
+   
+      public void setDeck1Size(int d1)
+   {
+      deck1size = d1;
+   }
+      public void setDeck2Size(int d2)
+   {
+      deck2size = d2;
+   }
+   
+   
+   
+   
+   
+   
+      
+   public ArrayList<ImageIcon> Images()
+   {
+    ArrayList<ImageIcon> cardImages = new ArrayList<ImageIcon>();
     
     char x = 'a';
     String y = "";
@@ -153,28 +186,31 @@ public class WarGame extends Deck1
             if(r==11)
             {
                y="jack";
-               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg");
+               cardImages.add(new ImageIcon("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg"));
             }
             else if(r==12)
             {
                y="queen";
-               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg");
+               cardImages.add(new ImageIcon("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg"));
             }
             else if(r==13)
             {
                y="king";
-               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg");
+               cardImages.add(new ImageIcon("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg"));
             }
             else if(r==14)
             {
                y="ace";
-               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg");
+               cardImages.add(new ImageIcon("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg"));
             }
             else
-               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ r + x +".jpg");
-           //cardImages.add(new ImageIcon("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ r + s +".jpg");
+            {
+               cardImages.add(new ImageIcon("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ r + x +".jpg"));
+            }
          }
       } 
+         //for(int i=0;i<cardImages.size();i++)
+            //System.out.println(cardImages.get(i));
     return cardImages;
    }
    
