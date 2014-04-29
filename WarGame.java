@@ -1,5 +1,7 @@
 import java.util.Random;
-import java.util.ArrayList;   
+import java.util.ArrayList;
+import javax.swing.*;
+import java.awt.*;   
    
 public class WarGame extends Deck1
 {
@@ -103,6 +105,8 @@ public class WarGame extends Deck1
          System.out.println("Player One Wins!!!!");
         else if (playerTwoDeck.cardsRemaining()>playerOneDeck.cardsRemaining())
          System.out.println("Player Two Wins!!!!");   
+         
+        game1.Images(); 
    }
       
    public int Turn(Card c1, Card c2)
@@ -122,6 +126,56 @@ public class WarGame extends Deck1
          }
          
       return high;
+   }
+   
+      
+   public ArrayList Images()
+   {
+    ArrayList cardImages = new ArrayList<ImageIcon>();
+    
+    char x = 'a';
+    String y = "";
+      
+      for (int r = 2; r<15;r++)
+      {       
+         for (int s=Card.SPADES;s<=Card.CLUBS;s++)
+         {
+            if(s==0)
+               x='s';
+            else if(s==1)
+               x='h';
+            else if(s==2)
+               x='d';
+            else if(s==3)
+               x='c';
+         
+            
+            if(r==11)
+            {
+               y="jack";
+               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg");
+            }
+            else if(r==12)
+            {
+               y="queen";
+               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg");
+            }
+            else if(r==13)
+            {
+               y="king";
+               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg");
+            }
+            else if(r==14)
+            {
+               y="ace";
+               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ y + x +".jpg");
+            }
+            else
+               System.out.println("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ r + x +".jpg");
+           //cardImages.add(new ImageIcon("C:\\Users\\Eric\\Documents\\GitHub\\CS110_Final_Project\\cardPics\\"+ r + s +".jpg");
+         }
+      } 
+    return cardImages;
    }
    
 
