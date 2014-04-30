@@ -1,3 +1,6 @@
+//Eric M. Casavant
+//CS110 War Game
+
 import java.util.Random;
 import java.util.ArrayList;
 import javax.swing.*;
